@@ -152,8 +152,8 @@
       position: absolute;
       margin-left: 1350px;
       top: 45px;
-      height: 60px;
-      width: 60px;
+      height: 50px;
+      width: 50px;
       margin-right: 25px;
       margin-top: 25px;
       right: -6px;
@@ -191,7 +191,7 @@
 
   <div class="avisos">
     <p>Consulte a <strong>taxa de entrega</strong> para sua região!</p>
-    <p1><strong>Taxa minima: 10,00 R$</strong></p1>
+    <p1><strong>Entrega minima: 10,00 R$</strong></p1>
     <p><strong>Pagamento via PIX disponível!</strong></p>
     <p><strong><span style="color: rgb(43, 43, 230);">(86)-98855.8312</span></strong></p>
     <div class="center">
@@ -242,6 +242,11 @@
         <h3>Coca 1L(retornavel)</h3>
         <p>R$5,00</p>
         <button onclick="addToCart('Refrigerante', 5.00)">Adicionar</button>
+      </div>
+      <div class="product">
+        <h3>Coca 2L</h3>
+        <p>R$11,00</p>
+        <button onclick="addToCart('Refrigerante', 11.00)">Adicionar</button>
       </div>
       <div class="product">
         <h3>Coca Lata</h3>
@@ -369,8 +374,8 @@
       box.className = 'product';
       box.innerHTML = `
         <h3>${sabor}</h3>
-        <p>R$3,00</p>
-        <button onclick="addToCart('${sabor} (Grande)', 3.00)">Adicionar</button>
+        <p>R$4,00</p>
+        <button onclick="addToCart('${sabor} (Grande)', 4.00)">Adicionar</button>
       `;
       outrosDiv.appendChild(box);
     });
