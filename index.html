@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rose Salgados</title>
+  <style>
+    .fade-in {
+      opacity: 0;
+      animation: aparecer 1s ease forwards;
+    }
+    @keyframes aparecer {
+      to {
+        opacity: 1;
+      }
+    }
+
+    img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid #b20000;
+        display: block;
+        margin: 10px 0;
+        max-width: 100%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff8f8;
+      color: #333;
+    }
+    header {
+      background: #c0392b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+    .avisos {
+      background: #ffeaea;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 2px solid #c0392b;
+    }
+    .avisos p {
+      margin: 0.5rem 0;
+      font-weight: bold;
+      color: #b20000;
+    }
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      padding-left: 1rem;
+      color: #c0392b;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
+    .product {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+      align-items: start;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin: 0.5rem;
+      width: 200px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .product h3 {
+      margin: 0.5rem 0;
+    }
+    .product button {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 2px;
+    }
+    .cart {
+      position: fixed;
+      bottom: 0;
+      top: -10;
+      right: 0;
+      width: 130px;
+      height: 40vh;
+      background-color: #e9d5d5;
+      padding: 8px;
+      z-index: 450;
+      overflow-y: auto;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.5);
+    }
+    .card.aparecer {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cart h2 {
+      margin-top: 0;
+    }
+    .cart-items {
+      list-style: none;
+      padding: 0;
+    }
+    .cart-items li {
+      margin-bottom: 0.5rem;
+    }
+    #sendBtn, #cancelBtn {
+      background: #c0392b;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    #cancelBtn {
+      background: #bbb;
+      color: #333;
+    }
+    button {
+      transition: transform 0.2s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+    .center img {
+      border-radius: 50%;
+      border: 5px solid #fbe70e;
+      display: block;
+      height: 60px;
+      width: 60px;
+      position: absolute;
+      top: 45px;
+      margin-top: 25px;
+    }
+    footer img{
+      position: absolute;
+      margin-left: 1350px;
+      top: 45px;
+      height: 60px;
+      width: 60px;
+      margin-right: 25px;
+      margin-top: 25px;
+      right: -6px;
+      border-radius: 50%;
+      border: 5px solid #4a1ea1;
+    }
+    .banner {
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .banner img { 
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      display: block;
+      height: auto;
+      border-radius: 0;
+    }
+    @media screen and (max-width: 768px) {
+      .colaborador img{
+        width: 30%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <img src="./img/Imagem do WhatsApp de 2025-04-08 à(s) 20.53.24_c4010d46.jpg" alt="Banner R.Salgados">
+  </div>
+<!-- <header class="fade-in"> Rose Salgados </header>-->
+    <header><span style="color: #fbe70e;"></span> Aceitamos Delivery</header>
+
+  <div class="avisos">
+    <p>Consulte a <strong>taxa de entrega</strong> para sua região!</p>
+    <p1><strong>Taxa minima: 10,00 R$</strong></p1>
+    <p><strong>Pagamento via PIX disponível!</strong></p>
+    <p><strong><span style="color: rgb(43, 43, 230);">(86)-98855.8312</span></strong></p>
+    <div class="center">
+      <img src="./img/Rose Salgados_20250404_191939_0000.jpg" alt="rose salgados">
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://www.instagram.com/rosesalgados.2023?igsh=ODZpdnkyazlsdHJ5" target="_blank" rel="noopener noreferrer"> 
+      <img src="./img/Instagram_logo_2016.svg" alt="insta dela">
+    </a>
+  </footer>
+
+  <h2>Salgados - Pastéis</h2> <img src="./img/220_F_338298961_ELDWGnNqAOx4ZfUKWizysUIYXVnNhZol.jpg" alt="imagem pastel">  
+  <div class="container" id="pasteis"></div>
+
+  <h2>Salgados - Outros</h2> <img src="./img/istockphoto-1903436449-612x612.jpg" alt="imagem outros">
+  <div class="container" id="outros">
+    </div>
+    <div class="product">
+      <h3>Mini-Pizza</h3>
+      <p>R$1,25</p>
+      <button onclick="addToCart('Mini-Pizza', 1.25)">Adicionar</button>
+    </div>
+
+    </div>
+    
+    <!-- Adicionei uma quebra de linha ou um espaçamento entre a seção Bomba e Sobremesas -->
+    <br>
+    
+    <h2>Sobremesas</h2>
+    <img src="./img/IMG-20230329-WA0009_optimized.jpg" alt="Imagem de bolo de pote">
+    <div class="container">
+      <div class="product">
+        <h3>Bolo de Pote</h3>
+        <p>R$4,00</p>
+        <button onclick="addToCart('Bolo de Pote', 4.00)">Adicionar</button>
+      </div>
+    </div>
+    
+    <!-- Adicionei uma quebra de linha ou um espaçamento entre a seção Sobremesas e Bebidas -->
+    <br>
+    
+    <h2>Bebidas</h2>
+    <img src="./img/coca-cola-2160843_1280.jpg" alt="Imagem de refrigerante">
+    <div class="container" id="bebidas">
+      <div class="product">
+        <h3>Coca 1L(retornavel)</h3>
+        <p>R$5,00</p>
+        <button onclick="addToCart('Refrigerante', 5.00)">Adicionar</button>
+      </div>
+      <div class="product">
+        <h3>Coca Lata</h3>
+        <p>R$4,50</p>
+        <button onclick="addToCart('Refrigerante', 4.50)">Adicionar</button>
+      </div>
+      <div class="product">
+        <h3>Fanta Lata</h3>
+        <p>R$4,00</p>
+        <button onclick="addToCart('Refrigerante', 4.00)">Adicionar</button>
+      </div>
+      <div class="product">
+        <h3>Agua mineral</h3>
+        <p>R$2,00</p>
+        <button onclick="addToCart('Refrigerante', 2.00)">Adicionar</button>
+      </div>
+      <div class="product">
+        <h3>Suco de Frutas/Poupas</h3>
+        <p>R$6,00</p>
+        <button onclick="addToCart('Refrigerante', 6.00)">Adicionar</button>
+      </div>
+      <div class="product">
+        <h3>Guaraná</h3>
+        <p>R$5,00</p>
+        <button onclick="addToCart('Refrigerante', 5.00)">Adicionar</button>
+      </div>
+    </div>
+    
+
+  <div class="cart">
+    <h2>Carrinho</h2>
+    <ul class="cart-items" id="cartItems"></ul>
+    <p><strong>Total: R$<span id="total">0.00</span></strong></p>
+    <button id="sendBtn" onclick="sendOrder()">Enviar Pedido pelo WhatsApp</button>
+    <button id="cancelBtn" onclick="cancelOrder()">Cancelar Pedido</button>
+  </div>
+  <script>
+
+
+    let cart = [];
+
+    function addToCart(name, price) {
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.qty++;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartList = document.getElementById('cartItems');
+      const totalSpan = document.getElementById('total');
+      cartList.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        const li = document.createElement('li');
+        li.textContent = `${item.qty}x ${item.name} - R$${itemTotal.toFixed(2)}`;
+        cartList.appendChild(li);
+      });
+      totalSpan.textContent = total.toFixed(2);
+    }
+
+    function sendOrder() {
+  if (cart.length === 0) {
+    alert('Carrinho vazio!');
+    return;
+  }
+
+  const nomeCliente = prompt("Digite seu nome para identificação:");
+  if (!nomeCliente) {
+    alert("Por favor, digite seu nome.");
+    return;
+  }
+
+  let message = `*Pedido Rose Salgados*\n`;
+  message += `Cliente: ${nomeCliente}\n\n`;
+
+  cart.forEach(item => {
+    message += `• ${item.qty}x ${item.name} - R$${(item.price * item.qty).toFixed(2)}\n`;
+  });
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  message += `\n*Total: R$${total.toFixed(2)}*`;
+
+  const numero = '5586994106831';
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+    function cancelOrder() {
+      cart = [];
+      renderCart();
+    }
+
+    const saboresPasteis = [
+      "Pastel de Frango", "Pastel-Frango com catupiry", "Pastel-Frango com queijo", "Pastel-Frango com cheder", "Pastel-Frango com carne",
+      "Pastel-Frango com carne e queijo", "Pastel de Carne", "Pastel-Carne com queijo", "Pastel-Carne com catupiry", "Pastel-Misto (queijo e presunto)",
+      "Pastel de Pizza", "Pastel-Moda da casa", "Pastel-Calabresa com cheder", "Pastel-Calabresa com queijo", "Pastel-Romeu e Julieta",
+      "Pastel de Queijo, tomate e orégano", "Pastel de Queijo", "Pastel-Queijo e cheder", "Pastel-Queijo e catupiry"
+    ];
+
+    const pasteisDiv = document.getElementById('pasteis');
+    saboresPasteis.forEach(sabor => {
+      const box = document.createElement('div');
+      box.className = 'product';
+      box.innerHTML = `
+        <h3>${sabor}</h3>
+        <p>Grande R$4,00 |<br> Pequeno R$2,00</p>
+        <button onclick="addToCart('${sabor} (Grande)', 4.00)">Grande</button>
+        <button onclick="addToCart('${sabor} (Pequeno)', 2.00)">Pequeno</button>
+      `;
+      pasteisDiv.appendChild(box);
+    });
+
+    const salgadosOutros = [
+    "Bomba"
+    ];
+    const outrosDiv = document.getElementById('outros');
+    salgadosOutros.forEach(sabor => {
+      const box = document.createElement('div');
+      box.className = 'product';
+      box.innerHTML = `
+        <h3>${sabor}</h3>
+        <p>R$3,00</p>
+        <button onclick="addToCart('${sabor} (Grande)', 3.00)">Adicionar</button>
+      `;
+      outrosDiv.appendChild(box);
+    });
+    const salgadoCoxinha = [
+    "Coxinha"
+  ];
+  const coxinhaDiv = document.getElementById('outros');
+    salgadoCoxinha.forEach(sabor => {
+      const box = document.createElement('div');
+      box.className = 'product';
+      box.innerHTML = `
+        <h3>${sabor}</h3>
+        <p>Grande R$4,00 |<br> Pequeno R$1,00</p>
+        <button onclick="addToCart('${sabor} (Grande)', 4.00)">Grande</button>
+        <button onclick="addToCart('${sabor} (Pequeno)', 1.00)">Pequeno</button>
+      `;
+     coxinhaDiv.appendChild(box);
+    });
+
+
+  </script>
+</body>
+</html>
