@@ -74,6 +74,10 @@
       width: 200px;
       text-align: center;
       margin-bottom: 20px;
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: scale(1.03s);
     }
     .product h3 {
       margin: 0.5rem 0;
@@ -94,11 +98,13 @@
       right: 0;
       width: 130px;
       height: 40vh;
-      background-color: #e9d5d5;
-      padding: 8px;
+      background-color: #fff;
+      padding: 16px;
       z-index: 450;
       overflow-y: auto;
-      box-shadow: -2px 0 8px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      font-family: sans-serif;
+      margin: 30px auto;
     }
     .card.aparecer {
       opacity: 1;
@@ -106,6 +112,9 @@
     }
     .cart h2 {
       margin-top: 0;
+      text-align: center;
+      margin-bottom: 12px;
+      color: #b22222;
     }
     .cart-items {
       list-style: none;
@@ -113,21 +122,37 @@
     }
     .cart-items li {
       margin-bottom: 0.5rem;
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
     }
     #sendBtn, #cancelBtn {
       background: #c0392b;
       color: white;
       border: none;
-      padding: 0.8rem;
+      padding: 10px;
       width: 100%;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 16px;
       cursor: pointer;
-      margin-top: 1rem;
+      margin-top: 10px;
+      transition: 0.2s ease;
+    }
+    #sendBtn {
+      background-color: #25D366;
+      color: white;
+    }
+    #sendBtn:hover {
+      background-color: #1ebc5a;
     }
     #cancelBtn {
       background: #bbb;
-      color: #333;
+      color: #fff9f9;
+    }
+    #cancelBtn:hover {
+      background-color: #bbb;
     }
     button {
       transition: transform 0.2s ease;
@@ -178,6 +203,15 @@
         width: 30%;
       }
     }
+    #searchBar {
+      padding: 10px;
+      margin: 20px auto;
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      border: 1px solid #170000;
+      border-radius: 8px;
+    }
 
   </style>
 </head>
@@ -186,6 +220,7 @@
   <div class="banner">
     <img src="./img/Imagem do WhatsApp de 2025-04-08 à(s) 20.53.24_c4010d46.jpg" alt="Banner R.Salgados">
   </div>
+  
 <!-- <header class="fade-in"> Rose Salgados </header>-->
     <header><span style="color: #fbe70e;"></span> Aceitamos Delivery</header>
 
@@ -204,7 +239,7 @@
       <img src="./img/Instagram_logo_2016.svg" alt="insta dela">
     </a>
   </footer>
-
+  <input type="text" id="searchBar" placeholder="Buscar por sabor de Pásteis"/>
   <h2>Salgados - Pastéis</h2> <img src="./img/220_F_338298961_ELDWGnNqAOx4ZfUKWizysUIYXVnNhZol.jpg" alt="imagem pastel">  
   <div class="container" id="pasteis"></div>
 
@@ -394,7 +429,19 @@
       `;
      coxinhaDiv.appendChild(box);
     });
+    const searchBar = document.getElementById('searchBar');
+const pasteisContainer = document.getElementById('pasteis');
 
+searchBar.addEventListener('input', () => {
+  const termo = searchBar.value.toLowerCase();
+  const cards = pasteisContainer.querySelectorAll('.product'); // ou a classe de cada pastel
+
+  cards.forEach(card => {
+    const titulo = card.querySelector('h3'); // onde está o nome do pastel
+    const texto = titulo ? titulo.textContent.toLowerCase() : '';
+    card.style.display = texto.includes(termo) ? 'block' : 'none';
+  });
+});
 
   </script>
 </body>
