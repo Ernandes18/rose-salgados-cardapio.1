@@ -54,12 +54,13 @@
       margin-bottom: 10px;
       padding-left: 1rem;
       color: #c0392b;
+      border-radius: 10px;
     }
     .avisos nav{
-      position: absolute;
-      line-height: 14px;
-      margin-left: 180px;
-      background-color: #8c1616;
+      padding: 5px;
+      text-align: center;
+      background-color: #090100fb;
+      border-radius: 20px;
     }
     .container {
       display: flex;
@@ -102,7 +103,7 @@
       bottom: 0;
       top: -10;
       right: 0;
-      width: 130px;
+      width: 110px;
       height: 40vh;
       background-color: #fff;
       padding: 16px;
@@ -111,6 +112,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
       font-family: sans-serif;
       margin: 30px auto;
+      border-radius: 15px;
     }
     .card.aparecer {
       opacity: 1;
@@ -244,11 +246,12 @@
 
   <div class="avisos">
     <p>Consulte a <strong>taxa de entrega</strong> para sua região!</p>
-    <p1><strong>Entrega minima: 10,00 R$</strong></p1> <nav><p><span style="color: rgb(243, 245, 243);">NÃO ATENDEMOS LIGAÇÃO (NÃO INSISTA)🔪</span></p></nav>
+    <p1><strong>Entrega minima: 10,00 R$</strong></p1> 
     <p><strong>Pagamento via PIX disponível!</strong></p>
     <p><strong><span style="color: rgb(43, 43, 230);">(86)-98855.8312</span></strong></p>
+    <nav><p> <span style="color: rgb(243, 245, 243);">NÃO ATENDEMOS LIGAÇÃO (NÃO INSISTA)🔪</span> </p></nav>
     <div class="center">
-      <img src="./img/Rose Salgados_20250404_191939_0000.jpg" alt="rose salgados">
+ 
     </div>
   </div>
 
@@ -464,7 +467,7 @@
       box.className = 'product';
       box.innerHTML = `
         <h3>${sabor}</h3>
-        <p>Calabresa R$1,25 |<br> Frango R$1,25</p>
+        <p> R$1,25 </p>
         <button onclick="addToCart('${sabor} (Calabresa)', 1.25)">Calabresa</button>
         <button onclick="addToCart('${sabor} (Frango)', 1.25)">Frango</button>
       `;
