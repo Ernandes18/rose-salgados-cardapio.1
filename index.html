@@ -49,11 +49,17 @@
       font-weight: bold;
       color: #b20000;
     }
-    h2 {
+    .avisos p {
       margin-top: 20px;
       margin-bottom: 10px;
       padding-left: 1rem;
       color: #c0392b;
+    }
+    .avisos nav{
+      position: absolute;
+      line-height: 14px;
+      margin-left: 180px;
+      background-color: #8c1616;
     }
     .container {
       display: flex;
@@ -212,6 +218,15 @@
       border: 1px solid #170000;
       border-radius: 8px;
     }
+    #aberto {
+      color: green;
+      font-weight: bold;
+    }
+    #fechado {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      margin-left: 35px;
+    }
 
   </style>
 </head>
@@ -222,11 +237,14 @@
   </div>
   
 <!-- <header class="fade-in"> Rose Salgados </header>-->
-    <header><span style="color: #fbe70e;"></span> Aceitamos Delivery</header>
+    <div id="status-funcionamento"></div>
+    <header><span style="color: #fbe70e;"></span> Aceitamos Delivery
+    
+    </header>
 
   <div class="avisos">
     <p>Consulte a <strong>taxa de entrega</strong> para sua região!</p>
-    <p1><strong>Entrega minima: 10,00 R$</strong></p1>
+    <p1><strong>Entrega minima: 10,00 R$</strong></p1> <nav><p><span style="color: rgb(243, 245, 243);">NÃO ATENDEMOS LIGAÇÃO (NÃO INSISTA)🔪</span></p></nav>
     <p><strong>Pagamento via PIX disponível!</strong></p>
     <p><strong><span style="color: rgb(43, 43, 230);">(86)-98855.8312</span></strong></p>
     <div class="center">
@@ -245,11 +263,6 @@
 
   <h2>Salgados - Outros</h2> <img src="./img/istockphoto-1903436449-612x612.jpg" alt="imagem outros">
   <div class="container" id="outros">
-    </div>
-    <div class="product">
-      <h3>Mini-Pizza</h3>
-      <p>R$1,25</p>
-      <button onclick="addToCart('Mini-Pizza', 1.25)">Adicionar</button>
     </div>
 
     </div>
@@ -317,6 +330,12 @@
     <p><strong>Total: R$<span id="total">0.00</span></strong></p>
     <button id="sendBtn" onclick="sendOrder()">Enviar Pedido pelo WhatsApp</button>
     <button id="cancelBtn" onclick="cancelOrder()">Cancelar Pedido</button>
+    <label for="forma-de-pagamento">Forma de Pagamento:</label>
+    <select id="forma-de-pagamento">
+      <option value="Dinheiro">Dinheiro</option>
+      <option value="Pix">Pix</option>
+      <option value="Cartão">Cartão</option>
+    </select>
   </div>
   <script>
 
@@ -359,16 +378,23 @@
     alert("Por favor, digite seu nome.");
     return;
   }
+  const formaPagamento = 
+  document.getElementById('forma-de-pagamento').value;
 
-  let message = `*Pedido Rose Salgados*\n`;
-  message += `Cliente: ${nomeCliente}\n\n`;
+  let itensCarrinhos = '';
+  let = total = 0;
 
   cart.forEach(item => {
-    message += `• ${item.qty}x ${item.name} - R$${(item.price * item.qty).toFixed(2)}\n`;
+    const itemTotal = item.price * item.qty;
+    total += itemTotal;
+    itensCarrinhos += `- ${item.qty}x ${item.name} - R$${itemTotal.toFixed(2)}\n`;
   });
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  message += `\n*Total: R$${total.toFixed(2)}*`;
+  
+  let message = `*Pedido Rose Salgados*\n\n`;
+  message += `*Pedido para:* ${nomeCliente}\n\n`;
+  message += `${itensCarrinhos}\n`;
+  message += `*Total:* R$${total.toFixed(2)}\n\n`;
+  message += `*Forma de Pagamento:* ${formaPagamento}`;
 
   const numero = '5586994106831';
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
@@ -395,7 +421,7 @@
         <h3>${sabor}</h3>
         <p>Grande R$4,00 |<br> Pequeno R$2,00</p>
         <button onclick="addToCart('${sabor} (Grande)', 4.00)">Grande</button>
-        <button onclick="addToCart('${sabor} (Pequeno)', 2.00)">Pequeno</button>
+        <button onclick="addToCart('${sabor} (Pequeno)', 2.00)">Pequena</button>
       `;
       pasteisDiv.appendChild(box);
     });
@@ -429,6 +455,23 @@
       `;
      coxinhaDiv.appendChild(box);
     });
+    const salgadoPizza = [
+    "Mini-Pizza"
+  ];
+  const minipizzaDiv = document.getElementById('outros');
+    salgadoPizza.forEach(sabor => {
+      const box = document.createElement('div');
+      box.className = 'product';
+      box.innerHTML = `
+        <h3>${sabor}</h3>
+        <p>Calabresa R$1,25 |<br> Frango R$1,25</p>
+        <button onclick="addToCart('${sabor} (Calabresa)', 1.25)">Calabresa</button>
+        <button onclick="addToCart('${sabor} (Frango)', 1.25)">Frango</button>
+      `;
+      minipizzaDiv.appendChild(box);
+    });
+
+
     const searchBar = document.getElementById('searchBar');
 const pasteisContainer = document.getElementById('pasteis');
 
@@ -442,6 +485,34 @@ searchBar.addEventListener('input', () => {
     card.style.display = texto.includes(termo) ? 'block' : 'none';
   });
 });
+
+function verificarFuncionamento() {
+  const agora = new Date();
+  const diaSemana = agora.getDay(); // 0 = Domingo, 6 = Sábado
+  const hora = agora.getHours();
+  const minutos = agora.getMinutes();
+
+  // Abre de segunda (1) a sábado (6), das 13h às 19h
+  const estaAberto = diaSemana >= 1 && diaSemana <= 6 &&
+    (hora > 13 || (hora === 13 && minutos >= 0)) &&
+    (hora < 19);
+
+  const status = document.getElementById("status-funcionamento");
+
+  if (estaAberto) {
+    status.textContent = "Aberto agora! Funcionamento das 13h às 19h (Segunda a Sábado)";
+    status.id = "aberto";
+  } else {
+    status.textContent = "Fechado no momento. Funcionamento das 13h às 19h (Segunda a Sábado)";
+    status.id = "fechado";
+  }
+}
+
+// Chama a função ao carregar a página
+verificarFuncionamento();
+// E atualiza a cada minuto
+setInterval(verificarFuncionamento, 60000);
+
 
   </script>
 </body>
