@@ -229,6 +229,14 @@
       font-weight: bold;
       margin-left: 35px;
     }
+    #pagamento-wrapper {
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    #forma-de-pagamento {
+      padding: 4px;
+      margin-right: 5px;
+    }
 
   </style>
 </head>
@@ -333,12 +341,15 @@
     <p><strong>Total: R$<span id="total">0.00</span></strong></p>
     <button id="sendBtn" onclick="sendOrder()">Enviar Pedido pelo WhatsApp</button>
     <button id="cancelBtn" onclick="cancelOrder()">Cancelar Pedido</button>
-    <label for="forma-de-pagamento">Forma de Pagamento:</label>
+    <div id="pagamento-wrapper">
+      <label for="forma-de-pagamento">Forma de Pagamento:</label>
     <select id="forma-de-pagamento">
       <option value="Dinheiro">Dinheiro</option>
       <option value="Pix">Pix</option>
-      <option value="Cartão">Cartão</option>
+      <option value="Cartão de Débito">Cartão de Débito</option>
+      <option value="Cartão de Crédito">Cartão de Crédito</option>
     </select>
+    </div>
   </div>
   <script>
 
@@ -399,7 +410,7 @@
   message += `*Total:* R$${total.toFixed(2)}\n\n`;
   message += `*Forma de Pagamento:* ${formaPagamento}`;
 
-  const numero = '5586994106831';
+  const numero = '5586988558312';
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
 }
